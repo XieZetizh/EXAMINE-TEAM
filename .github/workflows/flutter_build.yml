@@ -15,18 +15,17 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.13.0'
-        # ไม่ต้องระบุ working-directory ที่นี่ ถ้า checkout ที่ root ถูกต้อง
 
       - name: Get dependencies
-        working-directory: ./my_app     # เปลี่ยนเป็นโฟลเดอร์ที่มี pubspec.yaml
+        working-directory: ./EXAMINE_TEAM
         run: flutter pub get
 
       - name: Build APK
-        working-directory: ./my_app
+        working-directory: ./EXAMINE_TEAM
         run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: my_app/build/app/outputs/flutter-apk/app-release.apk
+          path: EXAMINE TEAM/build/app/outputs/flutter-apk/app-release.apk
